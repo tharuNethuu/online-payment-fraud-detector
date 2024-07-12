@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        label {
+            font-size: 0.8em;
+            display: block;
+            margin: 10px 0 5px 0;
+        }
+        select, input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Fraud Detection Tool for Bank Transactions</h1>
+        <p>Enter your data to check if the transaction is fraudulent or not.</p>
+        <form action="/predict" method="post">
+            <label for="transaction_type">Transaction Type:</label>
+            <select id="transaction_type" name="transaction_type">
+                <option value="CASH_IN">CASH_IN</option>
+                <option value="CASH_OUT">CASH_OUT</option>
+                <option value="DEBIT">DEBIT</option>
+                <option value="PAYMENT">PAYMENT</option>
+                <option value="TRANSFER">TRANSFER</option>
+            </select>
+            <br>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+            <br>
+            <label for="oldbalanceOrg">Old Balance Original:</label>
+            <input type="number" id="oldbalanceOrg" name="oldbalanceOrg" step="0.01" required>
+            <br>
+            <label for="newbalanceOrig">New Balance Original:</label>
+            <input type="number" id="newbalanceOrig" name="newbalanceOrig" step="0.01" required>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
